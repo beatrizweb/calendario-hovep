@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOVEP Vale — semana 03 a 08/11</title>
+<style>
+:root{--bg:#fff;--card:#fff;--ink:#1b2a41;--mut:#5b6678;--rosa:#1D4884;--azul:#1D4884;--verm:#CC2026;--line:#d9e1ee;--ok:#1D4884}
+body{margin:0;color-scheme:light;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:26px;margin:0 0 4px}h2{margin:32px 0 10px;color:var(--rosa)}
+.sub{color:var(--mut);margin:0 0 20px}
+.card{background:rgba(29,72,132,.09);border:1px solid rgba(29,72,132,.28);border-radius:12px;padding:16px;margin:12px 0}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--rosa);color:#fff;margin-right:6px}
+.tag.g{background:var(--ok)}.tag.m{background:var(--mut)}
+.d{font-weight:700}pre{white-space:pre-wrap;font:inherit;margin:8px 0}
+.l{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin-top:10px}
+.warn{border-left:4px solid var(--verm);padding-left:10px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:0 0 8px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px;min-height:130px;font-size:13px;line-height:1.35}
+.day b{display:block;color:var(--rosa);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.day .n{font-size:22px;font-weight:700;display:block;margin-bottom:4px}
+.day .t{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:99px;background:var(--rosa);color:#fff;margin-bottom:4px}
+.day.done{opacity:.65}.day.off{opacity:.5}
+a.day{display:block;color:inherit;text-decoration:none}a.day:hover{border-color:var(--rosa)}html{scroll-behavior:smooth}.card{scroll-margin-top:12px}.back{display:inline-block;font-size:13px;margin-top:6px;color:var(--rosa);text-decoration:none}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.day{min-height:0}}
+.top{background:#1D4884;border-bottom:5px solid #CC2026}.top div{max-width:860px;margin:0 auto;height:96px;background:url(data:image/png;base64,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) left center/auto 70px no-repeat}@media(max-width:700px){.top div{background-position:16px center;background-size:auto 56px}}
+main{padding-top:20px}
+
+.chk{margin-top:8px}
+.st{display:block;width:100%;margin-top:6px;padding:7px 4px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--mut);font:600 12px/1.2 system-ui,sans-serif;cursor:pointer}
+.chk .st:first-child{margin-top:0}
+.st:hover{border-color:var(--azul)}
+.st.on.f{background:#2e8b57;border-color:#2e8b57;color:#fff}
+.st.on.p{background:var(--azul);border-color:var(--azul);color:#fff}
+.day.s1{border-color:#2e8b57;background:#eaf6ef}
+.day.s2{opacity:.75;border-color:var(--azul)}
+.nav{max-width:860px;margin:0 auto;padding:12px 16px 0;display:flex;gap:8px;flex-wrap:wrap}.nav a,.nav span{font-size:13px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--azul);text-decoration:none;color:var(--azul)}.nav span{background:var(--azul);color:#fff}
+.col{display:flex;flex-direction:column;gap:8px}.rot{background:#fff4c2;border:2px solid #e8a900;border-left:8px solid #e8a900;border-radius:10px;padding:10px 14px 8px;margin:14px 0}.rot .l{margin-top:0;color:#7a4f00;font-weight:700}.rot pre{margin:6px 0 2px}@media(min-width:900px){.grid{grid-template-columns:repeat(8,1fr)}}@media(min-width:701px) and (max-width:899px){.grid{grid-template-columns:repeat(4,1fr)}}
+.side{position:fixed;top:0;left:0;bottom:0;width:224px;background:#2b2f38;color:#cfd5df;padding:14px 10px;overflow:auto;z-index:30;font:14px/1.3 system-ui,sans-serif;box-sizing:border-box}
+.side .lg{display:block;font-weight:800;color:#fff;font-size:16px;padding:6px 10px 14px;border-bottom:1px solid #3d4350;margin-bottom:6px;text-decoration:none}
+.side .lg small{display:block;font-weight:500;font-size:12px;color:#8a93a3}
+.side .sec{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a93a3;margin:16px 10px 6px}
+.side a.it{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:8px;color:#e6e9ef;text-decoration:none;margin:2px 0}
+.side a.it:hover{background:#363b46}
+.side a.it.on{background:#33503f;box-shadow:inset 0 0 0 1px #4f7a5f;color:#fff}
+.side a.it.h{font-size:13px;color:#b9c0cc;padding:7px 10px}
+#mn{position:absolute;opacity:0;pointer-events:none}
+.mnb{display:none}.ov{display:none}
+@media(min-width:900px){body{padding-left:224px}}
+@media(max-width:899px){.side{transform:translateX(-100%);transition:transform .2s}
+.mnb{display:flex;align-items:center;gap:6px;position:fixed;top:10px;right:10px;z-index:31;background:#2b2f38;color:#fff;border-radius:99px;padding:8px 14px;font:600 14px system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+#mn:checked~.side{transform:none}#mn:checked~.ov{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:29}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(6,1fr)}}@media(min-width:701px) and (max-width:899px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style></head><body><header class="top"><div role="img" aria-label="HOVEP Hospital Veterinário Popular"></div></header>
+
+
+
+<!--side--><input type="checkbox" id="mn"><label class="mnb" for="mn">☰ Menu</label><nav class="side" aria-label="Menu do calendário"><a class="lg" href="novembro.html">HOVEP Vale<small>Conteúdo do Instagram</small></a><div class="sec">Calendário</div><a class="it" href="novembro.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Mês de novembro</span></a><a class="it" href="./"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 14h8"/></svg><span>Semana atual (09 a 15/11)</span></a><div class="sec">Anúncios</div><a class="it" href="meta-ads.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a3 3 0 0 1 0 6M19 6a7 7 0 0 1 0 12"/></svg><span>Roteiros Meta Ads</span></a><div class="sec">Histórico</div><a class="it h on" href="semana-03-08-11.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Semana 03 a 08/11</span></a><a class="it h" href="semana-26-10-02-11.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Semana 26/10 a 02/11</span></a><a class="it h" href="semana-19-25-10.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Semana 19 a 25/10</span></a></nav><label class="ov" for="mn"></label><!--/side-->
+<main>
+<h1>HOVEP Vale do Aço — semana de 03 a 08/11</h1>
+<p class="sub">@hospitalvetpopular.vale · Ipatinga, Coronel Fabriciano e Timóteo</p>
+<h2 id="semana">A semana de relance <small style="font-weight:400;font-size:13px;color:var(--mut)">(toque no dia para ir ao roteiro)</small></h2><div class="grid"><a class="day" href="#ter"><b>Ter</b><span class="n">03/11</span><span class="t">Reels</span><br>Teaser: sábado 07/11 tem um dia especial</a><div class="col"><a class="day" href="#qua"><b>Qua</b><span class="n">04/11</span><span class="t">Arte</span><br>Convite do dia de vacinação</a><a class="day" href="#quat"><b>Qua · 2º post</b><span class="t">Reels · trend</span><br>Trend: aqui o hospital não para nunca</a></div><div class="col"><a class="day" href="#qui"><b>Qui</b><span class="n">05/11</span><span class="t">Reels</span><br>Novembro Azul: vídeo educativo de abertura</a><a class="day" href="#quia"><b>Qui · 2º post</b><span class="t">Arte</span><br>Novembro Azul: criativo de abertura</a></div><div class="col"><a class="day" href="#sex"><b>Sex</b><span class="n">06/11</span><span class="t">Motion</span><br>É amanhã! As 4 vacinas e o convite</a><a class="day" href="#qua2"><b>Sex · 2º post</b><span class="t">Reels</span><br>Gatinho (só a pata) paga com o cartão HOVEP</a></div><a class="day" href="#sab"><b>Sáb</b><span class="n">07/11</span><span class="t">Stories ao vivo</span><br>Dia do evento, das 9h às 15h</a><div class="day off"><b>Dom</b><span class="n">08/11</span>Sem post</div></div>
+<h2>Calendário da semana</h2>
+<div class="card" id="ter"><span class="tag">Ter 03/11</span><span class="tag m">Reels</span><span class="d">Evento de vacinação — teaser: "sábado 07/11 tem um dia especial aqui"</span>
+<div class="rot"><div class="l">Roteiro de gravação (10–15 s)</div><pre>Cena 1 (3 s): cachorro ou gato olhando para a câmera na recepção, texto na tela "Psiu... tem novidade".
+
+Cena 2 (4 s): mãos da equipe organizando a sala (sem mostrar tudo).
+
+Cena 3 (4 s): veterinário(a) sorrindo e falando: "Dia 7 a gente te espera aqui. Guarda essa data!"
+
+Fecho: texto "Sábado, 07/11".</pre></div>
+<div class="l">Legenda</div><pre>Guarda essa data: sábado, 07/11. 🐾
+A gente tá preparando um dia cheio de cuidado pros nossos pacientes de quatro patas. Logo logo contamos tudo por aqui. Quem vem?</pre>
+<div class="l">Hashtags · Quem grava</div><pre>#hovep #hospitalveterinariopopular #valedoaço #ipatinga #coronelfabriciano #timoteo #vacinaçãopet #vacinaemdia · Grava e edita: Laura (acertar o telefone e as plaquinhas na edição)</pre>
+<p class="warn">Teaser: não revelar o que será o evento; só a data.</p><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="qua"><span class="tag">Qua 04/11</span><span class="tag m">Arte</span><span class="d">Evento de vacinação — convite (aprovado pelo Victor em 03/11)</span>
+<div class="l">Texto da arte</div><pre>Título: "DIA DE VACINAÇÃO HOVEP"
+Data: "Sábado, 07/11 · das 9h às 15h"
+O que é: dia de orientação sobre as vacinas do seu pet (não é dia de consulta)
+Para o tutor e o pet: pipoca à vontade · sorteio · mimo para o seu pet
+Rodapé: só o telefone e o responsável técnico (sem o site e sem o "para mais informações")
+Visual: padrão HOVEP (azul e vermelho, logo), feed 1080×1350.</pre>
+<div class="l">Legenda</div><pre>Agora pode contar: no sábado, 07/11, das 9h às 15h, a HOVEP abre as portas para um dia de orientação sobre as vacinas do seu pet, com a nossa equipe tirando todas as dúvidas sobre a carteirinha dele. E ainda tem pipoca à vontade, sorteio e um mimo para o seu pet, então já salva a data e marca aqui quem também precisa ver isso 💙💉 Lembrando que nesse dia o foco é orientação, e não consulta.</pre>
+<div class="l">Stories</div><pre>Repostar a arte nos Stories com a figurinha de contagem regressiva para sábado, 07/11.</pre>
+<div class="l">Disparo de mensagens</div><pre>A mesma arte, em alta qualidade, vai no disparo que já está organizado; o texto do disparo leva a data e o horário (sábado, 07/11, das 9h às 15h). Texto: Laura · Arquivo: Beatriz.</pre>
+<div class="l">Hashtags · Quem faz</div><pre>#vacinaemdia #hovep #ipatinga #coronelfabriciano #timoteo · Arte: Beatriz</pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="quat"><span class="tag">Qua 04/11</span><span class="tag m">Reels · trend</span><span class="d">Trend: aqui o hospital não para nunca</span>
+<div class="l">Ideia</div><pre>Trend do hospital que não tem feriado, não tem fim de semana e não tem hora: a equipe mostra que está sempre pronta para atender, 24 horas por dia, 7 dias por semana. Gravar no mesmo formato e com o mesmo áudio do vídeo de referência, trocando pela equipe e pelo espaço da HOVEP.</pre>
+<div class="rot"><div class="l">Roteiro (seguir o vídeo de referência)</div><pre>Texto na tela no começo: "Fim de semana chegando... e agora?"
+Cenas: a equipe da HOVEP no plantão (recepção, consultório, internação), cada um no seu posto, pronta para atender.
+Texto na tela no fim: "Aqui não tem feriado, não tem fim de semana e não tem hora. HOVEP 24h 💙"</pre></div>
+<div class="l">Legenda</div><pre>Fim de semana chegando, e por aqui o cuidado não tira folga! 💙 Na HOVEP não tem feriado, não tem fim de semana e não tem hora para cuidar de quem precisa, porque a nossa equipe está pronta para atender o seu pet 24 horas por dia, 7 dias por semana. Pode contar com a gente, o nosso hospital não para nunca!</pre>
+<div class="l">Áudio · Hashtags · Quem grava</div><pre>Áudio do vídeo de referência · #hospitalveterinario #plantao24h #hovep #ipatinga #coronelfabriciano #timoteo
+Grava: equipe da HOVEP [nomes a confirmar] · Posta: hoje, 04/11</pre>
+<div class="l">Inspiração (referência)</div><pre><a href="https://www.instagram.com/reel/DfIMVXuvQL4/" target="_blank" rel="noopener">https://www.instagram.com/reel/DfIMVXuvQL4/</a></pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="qua2"><span class="tag">Sex 06/11</span><span class="tag m">Reels</span><span class="d">Gatinho (só a pata) paga com o cartão HOVEP no balcão</span>
+<div class="l">Ideia</div><pre>Só a patinha de um gatinho aparece, entregando o cartão HOVEP no balcão. Uma voz pede para passar as compras na aproximação porque esqueceu a senha. Só no final a câmera mostra quem é o cliente: o gato, o paciente.
+É revelação no final: quem vê só a pata quer saber de quem é e assiste até o fim.</pre>
+<div class="l">Gancho (primeiros 3 s)</div><pre>Só a pata, sem rosto: a patinha empurra o cartão HOVEP por cima do balcão até a atendente.</pre>
+<div class="rot"><div class="l">Roteiro (15–20 s)</div><pre>Cena 1 (3 s) — a pata: câmera na altura do balcão da recepção. Só a patinha do gato aparece, empurrando o cartão HOVEP. A atendente pega o cartão sem estranhar nada.
+Cena 2 (6 s) — a fala: uma voz por cima, calma e firme, de cliente apressado: "Passa essas compras na aproximação no cartão HOVEP, porque esqueci a senha." A atendente aproxima o cartão da maquininha e faz "bip". Deixar 2 ou 3 itens de "compra" no balcão (um sachê, um petisco, um brinquedinho).
+Cena 3 (4–6 s) — a revelação: a câmera sobe e mostra o gatinho sentado, olhando para a câmera com cara de quem resolveu tudo. Texto na tela: "O paciente mais esperto da HOVEP 😹".
+Fecho (2 s): imagem parada no gato e outro "bip" da maquininha.</pre></div>
+<div class="l">Legenda</div><pre>Esse paciente pagou sozinho. 😹🐾
+Marca o tutor do gato mais esperto que você conhece!
+E você, quer o seu cartão HOVEP também? Chama a gente no WhatsApp e garante o seu. 💙</pre>
+<div class="l">Áudio · Hashtags · Quem grava</div><pre>Voz dublada por alguém da equipe + som de "bip" da maquininha; música leve baixinha, opcional · #humorpet #gatosdeinstagram #petsdeinstagram #hovep
+Grava: recepção [nome a confirmar] + tutor do gato · Edição final: Beatriz</pre>
+<div class="l">Inspiração (referência)</div><pre><a href="https://www.instagram.com/p/DezMEYPxxTV/" target="_blank" rel="noopener">https://www.instagram.com/p/DezMEYPxxTV/</a></pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="quia"><span class="tag">Qui 05/11</span><span class="tag m">Arte</span><span class="d">Novembro Azul — criativo de abertura do mês</span>
+<div class="l">Arte de abertura (feed)</div><pre>Título: "NOVEMBRO AZUL TAMBÉM É DELES 💙"
+Apoio: "Este mês, a HOVEP fala da saúde dos machos: próstata, castração e check-up."
+Rodapé: "Acompanhe a série aqui no perfil."
+Visual: padrão HOVEP com o azul do Novembro Azul, feed 1080×1350, foto de um cão macho com o tutor.</pre>
+<div class="l">Legenda da arte</div><pre>Novembro Azul também é deles 💙 Durante este mês, a gente vai falar aqui sobre a saúde dos machos, da próstata à castração, passando pelos exames que deixam cada procedimento mais seguro. A ideia é simples: informação clara para você cuidar do seu pet antes de virar urgência. Então acompanha a série e manda para quem tem um macho em casa.</pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="qui"><span class="tag">Qui 05/11</span><span class="tag m">Reels</span><span class="d">Novembro Azul — vídeo informativo de abertura do mês (educativo)</span>
+<div class="rot"><div class="l">Roteiro do vídeo informativo (30–40 s)</div><pre>Gancho, vet no consultório com um paciente macho de verdade (6 anos ou mais, com autorização do tutor), já no segundo 1: "Este é o [nome do pet], ele tem [idade] e veio hoje fazer o check-up que todo macho dessa idade precisa."
+Fala corrida: "Todo cachorro macho tem a próstata, uma glândula pequena que fica pertinho da bexiga, e com o passar dos anos ela pode crescer ou ficar doente. Só que, no começo, ele quase não dá sinal, então fica de olho se o seu cachorro faz força para fazer xixi ou cocô, se o xixi sai pingando ou com sangue e se o cocô sai fininho, achatado. Viu algum desses sinais? Não espera passar e traz ele pra gente olhar. E, a partir dos 6 anos, mesmo sem sinal nenhum, ele precisa de um check-up por ano, inclusive se for castrado, porque quanto mais cedo a gente descobre, mais simples fica o tratamento."
+Na tela, um por vez: "Força pra fazer xixi ou cocô" · "Xixi pingando ou com sangue" · "Cocô fininho" · "Check-up todo ano a partir dos 6 anos"
+Fecho: "Este mês, a gente vai falar mais sobre a saúde deles por aqui. Acompanha com a gente." · texto "Novembro Azul também é deles 💙"</pre></div>
+<div class="l">Legenda do vídeo</div><pre>Novembro Azul também é deles 💙 Todo cachorro macho tem próstata, e com a idade ela pode dar problema quase sem sinal no começo, por isso vale ficar de olho no xixi e no cocô dele e, a partir dos 6 anos, fazer o check-up todo ano, mesmo que ele seja castrado. Então assiste até o fim, salva este vídeo e, se o seu macho já passou dessa idade, chama a gente no WhatsApp para agendar o check-up.</pre>
+<div class="l">Áudio · Hashtags · Quem grava</div><pre>Áudio original + trilha calma e baixinha · #novembroazulpet #novembroazul #saudepet #hovep
+Grava: veterinário(a) [nome a confirmar] · Roteiro: Beatriz, para aprovação da Laura e do Victor</pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="sex"><span class="tag">Sex 06/11</span><span class="tag m">Motion</span><span class="d">Evento de vacinação — motion: é amanhã!</span>
+<div class="rot"><div class="l">Roteiro do motion (15–20 s)</div><pre>Tela 1: "É AMANHÃ! 💉" · "Sábado, 07/11 · das 9h às 15h"
+Tela 2: "Dia de orientação sobre vacinas na HOVEP"
+Tela 3: "V8 · para cães"
+Tela 4: "Raiva · para cães e gatos, todo ano"
+Tela 5: "Gripe · para cães"
+Tela 6: "V4 e FeLV · para gatos"
+Tela 7: "Vem tirar as suas dúvidas com a nossa equipe"
+Tela 8: "Pipoca à vontade · sorteio · mimo para o seu pet" + telefone + logo HOVEP</pre></div>
+<div class="l">Legenda</div><pre>É amanhã! 🐾 Sábado, 07/11, das 9h às 15h, a HOVEP faz um dia de orientação sobre as vacinas do seu pet: V8, raiva, gripe e V4 com FeLV. Então separa a carteirinha dele e traz todas as suas dúvidas, porque ainda tem pipoca à vontade, sorteio e um mimo para o seu pet. Marca aqui quem não pode perder 💉💙</pre>
+<div class="l">Stories</div><pre>Repostar o motion nos Stories com a figurinha de contagem regressiva.</pre>
+<div class="l">Áudio · Hashtags · Quem faz</div><pre>Trilha animada em alta · #vacinaemdia #hovep #ipatinga · Motion: social media</pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+<div class="card" id="sab"><span class="tag">Sáb 07/11</span><span class="tag m">Stories ao vivo</span><span class="d">Dia do evento de vacinação: stories ao vivo, das 9h às 15h</span>
+<div class="l">Stories ao longo do dia</div><pre>1) 9h, bom dia da equipe: "Começou! A gente já está esperando vocês até as 15h."
+2) Bastidores: o espaço pronto, a pipoca saindo e os mimos separados.
+3) Pets e tutores chegando (com autorização dos tutores).
+4) Caixinha de perguntas: "Qual a sua dúvida sobre vacina?" e o(a) vet respondendo algumas ao vivo.
+5) Enquete: "A carteirinha do seu pet está em dia?" Sim / Vim descobrir hoje.
+6) O sorteio, ao vivo.
+7) 15h, encerramento: "Obrigado a todo mundo que veio hoje 💙".</pre>
+<div class="l">Quem grava</div><pre>Equipe no local [nome a confirmar] · Posta: social media</pre><a class="back" href="#semana">↑ voltar ao calendário</a></div>
+
+
+<h2>Reserva e próximas datas de novembro</h2>
+<div class="card"><span class="tag">Saiu de ter 03/11</span><b>Reels — teaser da vacinação: ele já entendeu 😂</b>
+<pre class="rot">Gancho: o tutor começa a frase "Sábado a gente vai na HOVEP tomar a vac…" e o pet sai correndo antes de a palavra terminar.
+Cena 1 (4 s): tutor(a) agachado(a) falando com o pet, todo animado: "Sábado a gente vai na HOVEP tomar a vac…"
+Cena 2 (3 s): antes de terminar a palavra, o pet levanta e sai correndo (ou se esconde embaixo da cama ou do sofá). Som de fuga de desenho animado.
+Cena 3 (3 s): a câmera procura o pet e só acha o rabinho aparecendo. Texto na tela: "Ele já entendeu 😂".
+Fecho (3 s): tela azul HOVEP com o texto "Sábado, 07/11 · amanhã a gente conta tudo 👀".
+Legenda: Bastou começar a palavra para ele sumir 😂 Só que esse sábado, 07/11, vai valer a pena pra ele e pra você, porque a gente está preparando um dia especial aqui na HOVEP. Então fica de olho no perfil e marca aquele amigo que vive esquecendo a carteirinha do pet, porque amanhã a gente conta tudo 👀💉
+#humorpet #vacinaemdia #hovep #ipatinga · Grava: tutor(a) ou alguém da equipe com o próprio pet [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Qua 11/11</span><b>Reels — como foi o dia de vacinação</b>
+<pre class="rot">Como fazer: vídeo de 20 a 30 s com os melhores momentos do sábado (pets chegando, equipe tirando dúvidas, pipoca, sorteio), com corte rápido no ritmo da música e o texto "Que sábado! 💙" na abertura. Fecha com a equipe dando tchau.
+Legenda: Que sábado! 💙 Assiste e vê como foi o nosso dia de vacinação, com cada pet e tutor que passou por aqui para tirar as dúvidas. Obrigado a todos que vieram, e, se você não conseguiu vir, chama a gente no WhatsApp, porque a carteirinha do seu pet pode ficar em dia aqui o ano inteiro.
+#vacinaemdia #hovep · Edição: social media (com os vídeos do dia enviados pela clínica)</pre></div>
+<div class="card"><span class="tag">Seg 09/11</span><b>Reels Novembro Azul — 4 sinais de que a próstata do seu cão precisa de atenção</b>
+<pre class="rot">Gancho, vet para a câmera: "Tem 4 sinais que mostram que a próstata do seu cachorro precisa de atenção, e dá para perceber todos em casa."
+Fala corrida (25–35 s), com cada sinal escrito na tela enquanto ela fala: "O primeiro é fazer força ou demorar para fazer xixi. O segundo é sangue na urina. O terceiro é o intestino preso ou as fezes mais finas que o normal. E o quarto é dor ou dificuldade para andar. E atenção: o castrado também pode ter problema de próstata, então o check-up anual vale para todo macho a partir dos 6 anos."
+Fecho: "Notou algum desses sinais? Traz para a gente olhar." · texto "Novembro Azul também é deles 💙"
+Legenda: Novembro Azul também é deles 💙 Assiste até o fim e confere os 4 sinais de que a próstata do seu cachorro precisa de atenção, porque dá para perceber todos em casa, antes de virar urgência. Então salva este vídeo e manda para quem tem cão macho em casa.
+#novembroazulpet #saudepet #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Semana de 09/11</span><b>Reels Bate-bola Azul — Sem Rodeios, Doutor(a)! sobre a saúde dos machos</b>
+<pre class="rot">Abertura: "Sem Rodeios, Doutor(a)! Preparado para as perguntas?"
+Perguntas (gravar 7, publicar as 5 melhores):
+• Com que idade o cachorro macho deve começar a olhar a próstata?
+• Castrar resolve tudo ou ainda precisa de check-up?
+• O que o tutor pode reparar no xixi do pet em casa?
+• Gato macho também tem problema de próstata?
+• Qual a desculpa mais comum dos tutores para adiar o check-up?
+Fecho: "Qual pergunta você faria? Comenta" (fala e texto na tela).
+Legenda: Bate-bola Azul 💙 Hoje a conversa entre vets é sobre a saúde dos meninos, do check-up da próstata ao que dá para reparar em casa. E você, qual pergunta faria para o nosso time? Comenta aqui e manda para quem tem um macho em casa.
+#bateboladosvets #novembroazulpet #hovep · Grava: 2 vets [nomes a confirmar]</pre></div>
+<div class="card"><span class="tag">Novembro Azul · data a definir</span><b>Vídeo — castração do macho, da consulta ao pós-operatório (caso real)</b>
+<pre class="rot">Acompanhar um paciente real da HOVEP (com autorização do tutor), em 4 partes:
+1) Consulta: o tutor conta por que decidiu castrar e o(a) vet explica o que vai acontecer.
+2) Exames antes da cirurgia: coleta de sangue e pesquisa de parasita.
+3) Cirurgia: bastidores do centro cirúrgico, sem cenas fortes.
+4) Pós-operatório: o pet acordando, indo para casa e os cuidados dos primeiros dias.
+Formato das falas: Sem Rodeios, com as perguntas usadas com a Dra. Karine.
+Grava: equipe da HOVEP + tutor do paciente [nomes a confirmar]</pre></div>
+<div class="card"><span class="tag">Novembro Azul · data a definir</span><b>Vídeo — por que fazer exames antes da cirurgia (com a anestesista)</b>
+<pre class="rot">Formato Sem Rodeios, a anestesista respondendo para a câmera:
+• Por que pedir exame de sangue antes de uma cirurgia simples como a castração?
+• O que o exame mostra que não dá para ver na consulta?
+• E a pesquisa de parasita, para que serve antes da cirurgia?
+• O que acontece se aparecer alguma alteração no exame?
+Fecho: "Exame antes da cirurgia é o que deixa a anestesia mais segura para o seu pet."
+Legenda: Antes de qualquer cirurgia, a gente quer saber como o seu pet está por dentro 💙 Por isso a nossa anestesista explica, sem rodeios, por que os exames vêm antes da castração e como eles deixam a anestesia mais segura. Salva este vídeo e manda para quem está pensando em castrar o pet.
+#castracao #novembroazulpet #hovep · Grava: anestesista [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Meta Ads (não vai no feed)</span><b>Anúncio — combo pré-operatório da castração</b>
+<pre class="rot">O combo: consulta + exames pré-operatórios (sangue e pesquisa de parasita) por um valor promocional, válido só para castração agendada em novembro.
+Não é cumulativo com o desconto do cartão Vet Popular (quem tem o cartão já tem o desconto próprio).
+Valor e regras finais: Victor e Laura. O pacote fica cadastrado no SimplesVET.</pre></div>
+<div class="card"><span class="tag">Quando quiser</span><b>Reels — o verme do coração não é só no litoral</b>
+<pre class="rot">Gancho, vet para a câmera já no segundo 1: "Uma picada de mosquito pode levar um verme até o coração do seu cachorro."
+Fala corrida (25–35 s): "Parece exagero, mas é isso que faz a dirofilariose, o famoso verme do coração. E não é coisa só de praia: neste começo de novembro saiu a notícia de uma cachorrinha do Triângulo Mineiro que teve a doença descoberta tarde demais. Por isso vale prestar atenção nos sinais: tosse, cansaço fácil, perda de peso e falta de ar. Notou algum deles? Traz para a gente examinar e aproveita para perguntar qual prevenção é a certa para o seu pet."
+Legenda: Verme do coração não é só no litoral 🦟❤️ A doença passa pela picada do mosquito e, aqui em Minas, já teve cachorro que só foi diagnosticado tarde. Então, se o seu pet anda tossindo, cansando fácil ou emagrecendo, traz para a gente olhar e manda este vídeo para quem tem cachorro.
+#dirofilariose #saudepet #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Qua 25/11</span><b>Reels — chegou a chuva, chegou o mosquito-palha (leishmaniose)</b>
+<pre class="rot">Gancho, vet para a câmera: "Chegou a chuva, e com ela chegou o mosquito que transmite a leishmaniose."
+Fala corrida (25–35 s): "É o mosquito-palha, e aqui no Vale do Aço a gente já teve muitos casos em cães. Ele aparece mais no fim da tarde e à noite, então evita passear nesse horário perto de mato, mantém o quintal limpo, sem folha e fruta caída no chão, e usa a coleira repelente que o veterinário indicar. Se o seu cão emagreceu, tem ferida que não sara ou unha crescendo demais, traz para examinar."
+Legenda: Chegou a época de chuva e, com ela, o mosquito-palha, que é quem transmite a leishmaniose 🦟 Assiste e vê como proteger o seu cão, porque aqui no Vale do Aço essa doença é velha conhecida. Então salva este vídeo e manda para quem tem cachorro no quintal.
+#leishmaniose #mosquitopalha #hovep #ipatinga · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Dia de calor forte</span><b>Reels — golpe de calor: o que fazer no caminho até o plantão</b>
+<pre class="rot">Gancho, vet para a câmera: "Água gelada no cachorro com calor? Pode piorar."
+Fala corrida (20–30 s): "Golpe de calor é emergência, e o que você faz no caminho conta muito. Então, se o seu cão está ofegante demais, babando muito, com a gengiva bem vermelha ou fraco, molha o corpo dele com água em temperatura ambiente, nunca gelada nem com gelo, e vem direto para o plantão. E lembra: nem por cinco minutinhos dentro do carro."
+Legenda: Golpe de calor é emergência 🥵 Se o seu pet ficar ofegante demais, babando muito ou fraco, molha com água em temperatura ambiente, nunca gelada, e vem para o plantão HOVEP, que funciona 24h. Salva este vídeo para os dias quentes e manda para quem tem pet.
+#golpedecalor #petnocalor #plantao24h #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Depois da campanha</span><b>Arte — vacina da raiva é todo ano</b>
+<pre class="rot">Texto da arte: "Vacina da raiva: todo ano, a partir dos 3 meses de vida."
+Legenda: A raiva ainda circula por aí, principalmente por morcegos e bichos do mato, então a vacina do seu cão e do seu gato precisa ser renovada todo ano, a partir dos 3 meses de vida. Perdeu a campanha? Chama no WhatsApp que a gente coloca a carteirinha em dia 💉
+#raiva #vacinaemdia #hovep · Criação: social media</pre></div>
+<div class="card"><span class="tag">Para tutor de gato</span><b>Reels — ferida que não sara no gato pede consulta (esporotricose)</b>
+<pre class="rot">Gancho, vet para a câmera: "Ferida que não sara no seu gato? Não espera."
+Fala corrida (20–30 s): "Pode ser esporotricose, que aparece como ferida que não cicatriza, principalmente no rosto e nas patas, e que passa para outros gatos e até para pessoas por arranhão ou mordida. Até a consulta, pega o gato com luva e deixa ele separado dos outros bichos. E o mais importante: tem tratamento, então não solta nem abandona o seu gato, traz para a gente."
+Legenda: Ferida que não sara no gato pede consulta 🐱 A esporotricose tem tratamento, mas passa para outros gatos e até para pessoas, então quanto antes ele for examinado, melhor para todo mundo da casa. Salva este vídeo e manda para quem tem gato.
+#esporotricose #gatosdeinstagram #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Sáb 14/11 · stories</span><b>Dia Mundial do Diabetes — stories: pet também tem diabetes</b>
+<pre class="rot">Sequência de 4 stories:
+1) "Hoje é o Dia Mundial do Diabetes, e cão e gato também têm 🐶🐱"
+2) Enquete: "Você sabia que pet tem diabetes?" Sim / Não sabia
+3) "Os sinais: bebe água demais, faz xixi demais, emagrece mesmo comendo bem e fica mais cansado."
+4) "Notou algum desses sinais? Chama a gente no WhatsApp." + botão de link
+Criação: social media</pre></div>
+<div class="card"><span class="tag">Quando quiser</span><b>Reels — com quantos anos o seu pet vira idoso?</b>
+<pre class="rot">Gancho: texto na tela "Com quantos anos o seu pet vira idoso? Comenta antes de ver a resposta 👇"
+Vet para a câmera: "A maioria dos cães e gatos entra na fase idosa por volta dos 7 anos, e cachorro grande costuma chegar antes. E é aí que o check-up passa a ser mais frequente, porque é nessa fase que muita coisa começa sem dar sinal."
+Fecho: fotos de pacientes idosos da HOVEP (com autorização) e o texto "Velhinho, mas com a gente 💙".
+Legenda: Com quantos anos o seu pet vira idoso? 👀 Responde nos comentários antes de ver o vídeo, porque a resposta surpreende muito tutor. E, se o seu já passou dessa idade, marca aqui: ele merece um check-up caprichado.
+#petidoso #saudepet #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Qui 19 e sex 20/11</span><b>Feriado da Consciência Negra — o plantão não fecha</b>
+<pre class="rot">Qui 19/11, Stories: foto do plantão com o texto "Amanhã é feriado. O plantão HOVEP funciona normal, 24h." + botão de WhatsApp: "Qualquer urgência, chama aqui."
+Sex 20/11, arte: "FERIADO? A HOVEP ESTÁ ABERTA. Plantão 24h, todo dia, inclusive no feriado." + [WhatsApp da unidade]
+Legenda: Hoje é feriado, mas a HOVEP não fecha 💙 O nosso plantão funciona 24h, todo dia, então, se o seu pet precisar, é só vir até a gente. Salva este post para ter à mão e, em caso de urgência, chama no WhatsApp!
+#hovep #plantao24h #feriado · Criação: social media</pre></div>
+<div class="card"><span class="tag">Sex 27/11</span><b>Black Friday — Reels: se o meu pet fizesse as compras</b>
+<pre class="rot">Cena 1 (3 s): texto "Se o meu pet fizesse a Black Friday 🛒" com o pet ao lado de um carrinho ou de uma caixa.
+Cena 2 (6 s): itens entrando no carrinho com som de caixa registradora: petisco, mais petisco, bolinha e a almofada do sofá.
+Cena 3 (4 s): o tutor coloca um papel escrito "check-up" no carrinho e o pet empurra para fora 😂
+Fecho (2 s): texto "Esse item ele deixa pra você 😅".
+Legenda: Se dependesse dele, o carrinho da Black Friday seria só petisco 😂 Só que tem um item que ele sempre esquece, e é aí que você entra: o check-up. Então marca o tutor que vai encher o carrinho do pet hoje 🛒💙
+#blackfridaypet #humorpet #hovep · Grava: tutor(a) ou alguém da equipe com o próprio pet [nome a confirmar]</pre></div>
+<div class="card"><span class="tag">Seg 30/11</span><b>Reels — comece agora a preparar o pet para os fogos</b>
+<pre class="rot">Gancho: barulho de fogos e um pet se escondendo embaixo da cama; texto na tela "Dezembro vem aí, e os fogos também 🎆"
+Vet para a câmera (20–30 s): "Dá para começar agora a deixar o seu pet mais seguro para as festas. Monta um cantinho escuro e tranquilo, com a caminha e uma roupa com o seu cheiro, confere a plaquinha de identificação com o seu telefone e vê se portão, janela e muro não têm por onde ele fugir. E remédio para acalmar, só com orientação do veterinário, nunca por conta própria."
+Legenda: Dezembro está chegando e, com ele, os fogos 🎆 Então começa agora a preparar o seu pet, porque o susto é bem menor quando a casa já está pronta. Salva este vídeo e manda para quem tem um pet medroso em casa.
+#fogosepets #petseguro #hovep · Grava: veterinário(a) [nome a confirmar]</pre></div>
+
+<h2>Referências de inspiração</h2>
+<div class="card"><pre>• Qua 04/11 — trend: o hospital não para nunca
+  <a href="https://www.instagram.com/reel/DfIMVXuvQL4/" target="_blank" rel="noopener">https://www.instagram.com/reel/DfIMVXuvQL4/</a> (@veterinariamariana · 11.052 curtidas)
+• Sex 06/11 — gatinho paga com o cartão HOVEP
+  <a href="https://www.instagram.com/p/DezMEYPxxTV/" target="_blank" rel="noopener">https://www.instagram.com/p/DezMEYPxxTV/</a> (@petcarecuidadoanimal · 66 curtidas)
+• Verme do coração — notícia de 02/11 (O Tempo)
+  <a href="https://www.otempo.com.br/brasil/2026/11/2/verme-do-coracao-nao-esta-so-no-litoral-caso-de-cao-em-mg-expoe-mapa-ainda-desconhecido-da-doenca" target="_blank" rel="noopener">otempo.com.br — verme do coração em MG</a>
+• Golpe de calor — veterinário de BH (Itatiaia)
+  <a href="https://www.itatiaia.com.br/trends/saude-animal-calor-intenso-no-verao-exige-cuidados-redobrados-com-caes/" target="_blank" rel="noopener">itatiaia.com.br — calor e cães</a>
+• Novembro Azul Pet (Governo do Paraná)
+  <a href="https://www.parana.pr.gov.br/Noticia/Estado-promove-campanha-de-conscientizacao-ao-cancer-de-prostata-em-pets" target="_blank" rel="noopener">parana.pr.gov.br — próstata em pets</a></pre></div>
+</main><script>
+(function(){
+  var DB="https://calendario-hovep-default-rtdb.firebaseio.com/hovep/cal-03-08-11",
+      KEY="hovep-calendario-03-08-11-v1",OLD="hovep-calendario-03-08-11-x",
+      BTN=[["f","Feito"],["p","Postado"]],DEF={},
+      st=null,repaint={},sending={},dirty={},lost={},seeded=false;
+  try{st=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){}
+  if(!st){ // 1a vez nesta versao: traz o que ja estava marcado (antes era um botao de 3 estados)
+    st={};
+    try{var o=JSON.parse(localStorage.getItem(OLD)||"{}");
+      Object.keys(o).forEach(function(id){st[id+"/f"]=o[id]>=1?1:0;st[id+"/p"]=o[id]===2?1:0})}catch(e){}
+  }
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+  function cur(k){return st[k]!=null?st[k]:(DEF[k]||0)}
+  function valid(v){return v===0||v===1}
+  var note=document.createElement("small");
+  note.style.cssText="display:block;margin:-6px 0 10px;font-size:12px;color:var(--mut)";
+  var grid=document.querySelector(".grid");grid.parentNode.insertBefore(note,grid);
+  function say(ok){note.textContent=ok?"● Ao vivo: quem abrir este calendário vê os mesmos status.":"○ Sem conexão: mostrando o último status salvo neste aparelho."}
+  function push(k){
+    if(sending[k]){dirty[k]=true;return}
+    sending[k]=true;
+    fetch(DB+"/"+k+".json",{method:"PUT",body:JSON.stringify(cur(k))})
+      .then(function(r){if(!r.ok)throw 0;lost[k]=false;say(true)})
+      .catch(function(){lost[k]=true;say(false)})
+      .then(function(){sending[k]=false;if(dirty[k]){dirty[k]=false;push(k)}});
+  }
+  document.querySelectorAll("a.day").forEach(function(d){
+    var id=(d.getAttribute("href")||"").replace("#","");
+    d.classList.remove("done");
+    var box=document.createElement("div");box.className="chk";d.appendChild(box);
+    var bs=BTN.map(function(x){
+      var k=id+"/"+x[0],b=document.createElement("button");
+      b.type="button";b.className="st "+x[0];box.appendChild(b);
+      b.addEventListener("click",function(e){
+        e.preventDefault();e.stopPropagation();
+        st[k]=cur(k)?0:1;save();paint();push(k);
+      });
+      repaint[k]=function(){paint()};
+      return {b:b,k:k,l:x[1]};
+    });
+    function paint(){
+      bs.forEach(function(o){
+        var on=cur(o.k);
+        o.b.classList.toggle("on",!!on);o.b.setAttribute("aria-pressed",on?"true":"false");
+        o.b.textContent=(on?"☑ ":"☐ ")+o.l;
+      });
+      d.classList.remove("s1","s2");
+      if(cur(id+"/p"))d.classList.add("s2");else if(cur(id+"/f"))d.classList.add("s1");
+    }
+    paint();
+  });
+  function pull(){
+    if(document.hidden)return;
+    fetch(DB+".json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(data){
+      data=data||{};
+      Object.keys(repaint).forEach(function(k){
+        if(sending[k]||dirty[k])return;
+        if(lost[k]){push(k);return} // marca feita sem conexao: tenta de novo antes de aceitar o do banco
+        var p=k.split("/"),v=data[p[0]]&&data[p[0]][p[1]];
+        if(valid(v)){if(st[k]!==v){st[k]=v;repaint[k]()}}
+        else if(!seeded&&valid(st[k]))push(k); // 1a vez: sobe o que ja estava marcado neste aparelho
+      });
+      seeded=true;save();say(true);
+    }).catch(function(){say(false)});
+  }
+  pull();setInterval(pull,5000);
+  document.addEventListener("visibilitychange",pull);
+})();
+</script></body></html>
